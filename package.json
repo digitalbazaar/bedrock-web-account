@@ -4,7 +4,8 @@
   "description": "User Account APIs for Bedrock Web Apps",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "debounce-promise": "^3.1.0"
   },
   "repository": {
     "type": "git",
