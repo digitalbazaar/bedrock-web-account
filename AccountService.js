@@ -10,7 +10,7 @@ export class AccountService {
     urls = {
       base: '/accounts'
     }
-  }) {
+  } = {}) {
     this.config = {urls};
   }
 
