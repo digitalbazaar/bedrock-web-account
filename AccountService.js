@@ -40,4 +40,71 @@ export class AccountService {
     });
     return response.data;
   }
+
+  /**
+   * @method accounts
+   * @param {Object} config
+   * @param {string} config.url - the base url
+   * @param {string} config.email - the user's email
+   * @param {string} config.after - an account's DID
+   * @param {number} config.limit - how many accounts to return
+   * @return {Array} data
+   * @description calls on the index route and returns all
+   * accounts that match the email passed in.
+   */
+  async accounts({url = this.config.urls.base, email, after, limit}) {
+    const response = await axios.get(url, {
+      params: {email, after, limit},
+      headers: {'Accept': 'application/ld+json, application/json'}});
+    return response.data;
+  }
+
+  /**
+   * @method update
+   * @param {Object} config
+   * @param {string} config.url
+   * @param {string} config.id - an account's id
+   * @param {number} config.sequence - an account's sequence number
+   * @param {Array<Object>} config.patch - an array of json patches
+   * @return {Void}
+   * @description updates an account via a series of json patches
+   * patches need to be in the:
+   * [json patch format]{@link https://tools.ietf.org/html/rfc6902}
+   * [we use fast-json]{@link https://www.npmjs.com/package/fast-json-patch}
+   * for handling json patches.
+   */
+  async update({url = this.config.urls.base, id, sequence, patch}) {
+    await axios.patch(`${url}/${id}`,
+      {sequence, patch},
+      {headers: {'Accept': 'application/ld+json, application/json'}});
+  }
+
+  /**
+   * @method setStatus
+   * @param {Object} config
+   * @param {string} config.url
+   * @param {string} config.id - an account id
+   * @param {string} config.status - a string that is either active or deleted
+   * @return {Void}
+   * @description taken an id and a status string changes an account's status
+  */
+  async setStatus({url = this.config.urls.base, id, status}) {
+    await axios.post(`${url}/${id}/status`,
+      {status},
+      {headers: {'Accept': 'application/ld+json, application/json'}});
+  }
+
+  /**
+   * @method getRoles
+   * @param {Object} config
+   * @param {string} config.url
+   * @param {string} config.id - an account id
+   * @return {Void}
+   * @description takes an id and returns all sysRoles for it.
+  */
+  async getRoles({url = this.config.urls.base, id}) {
+    const response = await axios.get(`${url}/${id}/roles`,
+      {headers: {'Accept': 'application/ld+json, application/json'}});
+    return response.data;
+  }
 }
