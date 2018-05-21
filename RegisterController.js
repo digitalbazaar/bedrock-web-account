@@ -47,9 +47,7 @@ export class RegisterController {
         email: this.state.email,
         // phoneNumber: this.state.phoneNumber
       });
-      console.log('create result', result);
-
-      // TODO:
+      return result;
     } finally {
       this.state.registering = false;
     }
