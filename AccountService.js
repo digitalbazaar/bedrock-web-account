@@ -16,7 +16,7 @@ export class AccountService {
 
   async exists({url = this.config.urls.base, email}) {
     try {
-      const response = await axios.get(url, {
+      await axios.get(url, {
         params: {
           exists: true,
           email
