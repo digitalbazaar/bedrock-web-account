@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",
-    "debounce-promise": "^3.1.0"
+    "p-debounce": "^1.0.0"
   },
   "repository": {
     "type": "git",
