@@ -4,7 +4,7 @@
 'use strict';
 
 import {AccountService} from './AccountService.js';
-import debounce from 'debounce-promise';
+import pDebounce from 'p-debounce';
 
 export class RegisterController {
   constructor({debounceExists = 500, accountServiceConfig = {}} = {}) {
@@ -22,7 +22,7 @@ export class RegisterController {
     this.state.checkingExistence = true;
 
     if(!this._debounceExists) {
-      this._debounceExists = debounce(async () => {
+      this._debounceExists = pDebounce(async () => {
         let exists = false;
         try {
           exists = await this.accountService.exists({
