@@ -28,12 +28,16 @@ export class AccountService {
   }
 
   async create({url = this.config.urls.base, email}) {
-    const response = await axios.post(url, {email});
+    const response = await axios.post(url, {email}, {
+      headers: {'Accept': 'application/ld+json, application/json'}
+    });
     return response.data;
   }
 
   async get({url = this.config.urls.base, id}) {
-    const response = await axios.get(url + '/' + id);
+    const response = await axios.get(url + '/' + id, {
+      headers: {'Accept': 'application/ld+json, application/json'}
+    });
     return response.data;
   }
 }
