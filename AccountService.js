@@ -40,4 +40,11 @@ export class AccountService {
     });
     return response.data;
   }
+  async accounts({url = this.config.urls.base, email, cursor, limit}) {
+    const response = await axios.get(url + '/admin', {
+      params: {email, cursor, limit},
+      headers: {'Accept': 'application/ld+json, application/json'}
+    });
+    return response.data;
+  }
 }
