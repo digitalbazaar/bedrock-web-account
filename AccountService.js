@@ -44,6 +44,10 @@ export class AccountService {
   /**
    * @method accounts
    * @param {Object} config
+   * @param {string} config.url the base url
+   * @param {string} config.email the user's email
+   * @param {string} config.cursor an account's DID
+   * @param {number} config.limit how many accounts to return
    * @return {Array} data
    * @description calls on the adminr route and returns all
    * accounts that match the email passed in.
@@ -61,6 +65,10 @@ export class AccountService {
   /**
    * @method update
    * @param {Object} config
+   * @param {string} config.url
+   * @param {string} config.id
+   * @param {number} config.sequence
+   * @param {Array<Object>} config.patch
    * @return {Void}
    * @description id is an account's DID,
    * sequence is an integer
@@ -75,6 +83,9 @@ export class AccountService {
   /**
    * @method setStatus
    * @param {Object} config
+   * @param {string} config.url
+   * @param {string} config.id
+   * @param {string} config.status
    * @return {Void}
    * @description taken an id and a status string
    * patches an account's status
@@ -87,6 +98,8 @@ export class AccountService {
   /**
    * @method getCaps
    * @param {Object} config
+   * @param {string} config.url
+   * @param {string} config.id
    * @return {Void}
    * @description takes an id and returns all caps for it.
   */
