@@ -55,7 +55,7 @@ export class AccountService {
    * and the limit is number.
    */
   async accounts({url = this.config.urls.base, email, after, limit}) {
-    const response = await axios.get(url + '/admin', {
+    const response = await axios.get(url, {
       params: {email, after, limit},
       headers: {'Accept': 'application/ld+json, application/json'}
     });
