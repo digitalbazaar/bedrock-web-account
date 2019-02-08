@@ -91,7 +91,7 @@ export class AccountService {
    * patches an account's status
   */
   async setStatus({url = this.config.urls.base, id, status}) {
-    await axios.patch(`${url}/${id}/status`,
+    await axios.post(`${url}/${id}/status`,
       {status},
       {headers: {'Accept': 'application/ld+json, application/json'}});
   }
@@ -104,7 +104,7 @@ export class AccountService {
    * @description takes an id and returns all caps for it.
   */
   async getCaps({url = this.config.urls.base, id}) {
-    const response = await axios.get(`${url}/${id}/caps`,
+    const response = await axios.get(`${url}/${id}/roles`,
       {headers: {'Accept': 'application/ld+json, application/json'}});
     return response.data;
   }
