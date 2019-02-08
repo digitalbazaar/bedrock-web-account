@@ -46,7 +46,7 @@ export class AccountService {
    * @param {Object} config
    * @param {string} config.url the base url
    * @param {string} config.email the user's email
-   * @param {string} config.cursor an account's DID
+   * @param {string} config.after an account's DID
    * @param {number} config.limit how many accounts to return
    * @return {Array} data
    * @description calls on the adminr route and returns all
@@ -54,9 +54,9 @@ export class AccountService {
    * the cursor should be an account's DID
    * and the limit is number.
    */
-  async accounts({url = this.config.urls.base, email, cursor, limit}) {
+  async accounts({url = this.config.urls.base, email, after, limit}) {
     const response = await axios.get(url + '/admin', {
-      params: {email, cursor, limit},
+      params: {email, after, limit},
       headers: {'Accept': 'application/ld+json, application/json'}
     });
     return response.data;
