@@ -3,6 +3,9 @@
   "version": "0.1.0-0",
   "description": "User Account APIs for Bedrock Web Apps",
   "main": "index.js",
+  "scripts": {
+    "docs": "jsdoc *.js -d jsdoc"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "p-debounce": "^1.0.0"
@@ -20,6 +23,7 @@
     }
   },
   "devDependencies": {
-    "eslint-config-digitalbazaar": "^1.3.0"
+    "eslint-config-digitalbazaar": "^1.3.0",
+    "jsdoc": "^3.5.5"
   }
 }

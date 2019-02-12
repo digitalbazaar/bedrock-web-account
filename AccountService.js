@@ -47,7 +47,7 @@ export class AccountService {
    * @param {string} config.url - the base url
    * @param {string} config.email - the user's email
    * @param {string} config.after - an account's DID
-   * @param {number} config.limit - how many accounts to return
+   * @param {integer} config.limit - how many accounts to return
    * @return {Array} data
    * @description calls on the index route and returns all
    * accounts that match the email passed in.
@@ -64,7 +64,7 @@ export class AccountService {
    * @param {Object} config
    * @param {string} config.url
    * @param {string} config.id - an account's id
-   * @param {number} config.sequence - an account's sequence number
+   * @param {integer} config.sequence - an account's sequence number
    * @param {Array<Object>} config.patch - an array of json patches
    * @return {Void}
    * @description updates an account via a series of json patches
