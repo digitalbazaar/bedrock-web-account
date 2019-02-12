@@ -44,21 +44,18 @@ export class AccountService {
   /**
    * @method accounts
    * @param {Object} config
-   * @param {string} config.url the base url
-   * @param {string} config.email the user's email
-   * @param {string} config.after an account's DID
-   * @param {number} config.limit how many accounts to return
+   * @param {string} config.url - the base url
+   * @param {string} config.email - the user's email
+   * @param {string} config.after - an account's DID
+   * @param {number} config.limit - how many accounts to return
    * @return {Array} data
-   * @description calls on the adminr route and returns all
+   * @description calls on the index route and returns all
    * accounts that match the email passed in.
-   * the cursor should be an account's DID
-   * and the limit is number.
    */
   async accounts({url = this.config.urls.base, email, after, limit}) {
     const response = await axios.get(url, {
       params: {email, after, limit},
-      headers: {'Accept': 'application/ld+json, application/json'}
-    });
+      headers: {'Accept': 'application/ld+json, application/json'}});
     return response.data;
   }
 
@@ -66,13 +63,15 @@ export class AccountService {
    * @method update
    * @param {Object} config
    * @param {string} config.url
-   * @param {string} config.id
-   * @param {number} config.sequence
-   * @param {Array<Object>} config.patch
+   * @param {string} config.id - an account's id
+   * @param {number} config.sequence - an account's sequence number
+   * @param {Array<Object>} config.patch - an array of json patches
    * @return {Void}
-   * @description id is an account's DID,
-   * sequence is an integer
-   * patch is an array of json-patches
+   * @description updates an account via a series of json patches
+   * patches need to be in the:
+   * [json patch format]{@link https://tools.ietf.org/html/rfc6902}
+   * [we use fast-json]{@link https://www.npmjs.com/package/fast-json-patch}
+   * for handling json patches.
    */
   async update({url = this.config.urls.base, id, sequence, patch}) {
     await axios.patch(`${url}/${id}`,
@@ -84,11 +83,10 @@ export class AccountService {
    * @method setStatus
    * @param {Object} config
    * @param {string} config.url
-   * @param {string} config.id
-   * @param {string} config.status
+   * @param {string} config.id - an account id
+   * @param {string} config.status - a string that is either active or deleted
    * @return {Void}
-   * @description taken an id and a status string
-   * patches an account's status
+   * @description taken an id and a status string changes an account's status
   */
   async setStatus({url = this.config.urls.base, id, status}) {
     await axios.post(`${url}/${id}/status`,
@@ -99,9 +97,9 @@ export class AccountService {
    * @method getCaps
    * @param {Object} config
    * @param {string} config.url
-   * @param {string} config.id
+   * @param {string} config.id - an account id
    * @return {Void}
-   * @description takes an id and returns all caps for it.
+   * @description takes an id and returns all sysRoles for it.
   */
   async getCaps({url = this.config.urls.base, id}) {
     const response = await axios.get(`${url}/${id}/roles`,
