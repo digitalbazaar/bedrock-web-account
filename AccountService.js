@@ -95,14 +95,14 @@ export class AccountService {
   }
 
   /**
-   * @method getCaps
+   * @method getRoles
    * @param {Object} config
    * @param {string} config.url
    * @param {string} config.id - an account id
    * @return {Void}
    * @description takes an id and returns all sysRoles for it.
   */
-  async getCaps({url = this.config.urls.base, id}) {
+  async getRoles({url = this.config.urls.base, id}) {
     const response = await axios.get(`${url}/${id}/roles`,
       {headers: {'Accept': 'application/ld+json, application/json'}});
     return response.data;
