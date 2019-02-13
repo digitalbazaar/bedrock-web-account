@@ -93,6 +93,7 @@ export class AccountService {
       {status},
       {headers: {'Accept': 'application/ld+json, application/json'}});
   }
+
   /**
    * @method getCaps
    * @param {Object} config
