@@ -42,7 +42,7 @@ export class AccountService {
   }
 
   /**
-   * @method accounts
+   * @method getAll
    * @param {Object} config
    * @param {string} config.url - the base url
    * @param {string} config.email - the user's email
@@ -52,7 +52,7 @@ export class AccountService {
    * @description calls on the index route and returns all
    * accounts that match the email passed in.
    */
-  async accounts({url = this.config.urls.base, email, after, limit}) {
+  async getAll({url = this.config.urls.base, email, after, limit}) {
     const response = await axios.get(url, {
       params: {email, after, limit},
       headers: {'Accept': 'application/ld+json, application/json'}});
