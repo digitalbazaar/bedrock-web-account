@@ -4,7 +4,7 @@
 'use strict';
 
 import axios from 'axios';
-
+const headers = {'Accept': 'application/ld+json, application/json'};
 export class AccountService {
   constructor({
     urls = {
@@ -28,16 +28,12 @@ export class AccountService {
   }
 
   async create({url = this.config.urls.base, email}) {
-    const response = await axios.post(url, {email}, {
-      headers: {'Accept': 'application/ld+json, application/json'}
-    });
+    const response = await axios.post(url, {email}, {headers});
     return response.data;
   }
 
   async get({url = this.config.urls.base, id}) {
-    const response = await axios.get(url + '/' + id, {
-      headers: {'Accept': 'application/ld+json, application/json'}
-    });
+    const response = await axios.get(url + '/' + id, {headers});
     return response.data;
   }
 
@@ -54,8 +50,7 @@ export class AccountService {
    */
   async getAll({url = this.config.urls.base, email, after, limit}) {
     const response = await axios.get(url, {
-      params: {email, after, limit},
-      headers: {'Accept': 'application/ld+json, application/json'}});
+      params: {email, after, limit}, headers});
     return response.data;
   }
 
@@ -75,8 +70,7 @@ export class AccountService {
    */
   async update({url = this.config.urls.base, id, sequence, patch}) {
     await axios.patch(`${url}/${id}`,
-      {sequence, patch},
-      {headers: {'Accept': 'application/ld+json, application/json'}});
+      {sequence, patch}, {headers});
   }
 
   /**
@@ -90,8 +84,7 @@ export class AccountService {
   */
   async setStatus({url = this.config.urls.base, id, status}) {
     await axios.post(`${url}/${id}/status`,
-      {status},
-      {headers: {'Accept': 'application/ld+json, application/json'}});
+      {status}, {headers});
   }
 
   /**
@@ -103,8 +96,7 @@ export class AccountService {
    * @description takes an id and returns all sysRoles for it.
   */
   async getRoles({url = this.config.urls.base, id}) {
-    const response = await axios.get(`${url}/${id}/roles`,
-      {headers: {'Accept': 'application/ld+json, application/json'}});
+    const response = await axios.get(`${url}/${id}/roles`, {headers});
     return response.data;
   }
 }
