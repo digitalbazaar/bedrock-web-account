@@ -1,6 +1,8 @@
 # bedrock-web-account ChangeLog
 
 ## 0.1.0 -
+
+### Added
 - Add method getAll for fetching all accounts associated with an email.
 - Add method update for patching an account's email.
 - Add method setStatus for changing an account's status.
