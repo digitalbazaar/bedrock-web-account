@@ -27,8 +27,8 @@ export class AccountService {
     return false;
   }
 
-  async create({baseUrl = this.config.urls.base, email}) {
-    const response = await axios.post(baseUrl, {email}, {headers});
+  async create({url = this.config.urls.base, email}) {
+    const response = await axios.post(url, {email}, {headers});
     return response.data;
   }
 
@@ -69,7 +69,9 @@ export class AccountService {
    * for handling json patches.
    */
   async update({baseUrl = this.config.urls.base, id, sequence, patch}) {
-    await axios.patch(`${baseUrl}/${id}`, {sequence, patch}, {headers});
+    const patchHeaders = {'Content-Type': 'application/json-patch+json'};
+    await axios.patch(
+      `${baseUrl}/${id}`, {sequence, patch}, {headers: patchHeaders});
   }
 
   /**
