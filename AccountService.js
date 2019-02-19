@@ -4,7 +4,7 @@
 'use strict';
 
 import axios from 'axios';
-
+const headers = {Accept: 'application/ld+json, application/json'};
 export class AccountService {
   constructor({
     urls = {
@@ -14,9 +14,9 @@ export class AccountService {
     this.config = {urls};
   }
 
-  async exists({url = this.config.urls.base, email}) {
+  async exists({baseUrl = this.config.urls.base, email}) {
     try {
-      await axios.get(url, {
+      await axios.get(baseUrl, {
         params: {
           exists: true,
           email
@@ -27,24 +27,20 @@ export class AccountService {
     return false;
   }
 
-  async create({url = this.config.urls.base, email}) {
-    const response = await axios.post(url, {email}, {
-      headers: {'Accept': 'application/ld+json, application/json'}
-    });
+  async create({baseUrl = this.config.urls.base, email}) {
+    const response = await axios.post(baseUrl, {email}, {headers});
     return response.data;
   }
 
-  async get({url = this.config.urls.base, id}) {
-    const response = await axios.get(url + '/' + id, {
-      headers: {'Accept': 'application/ld+json, application/json'}
-    });
+  async get({baseUrl = this.config.urls.base, id}) {
+    const response = await axios.get(baseUrl + '/' + id, {headers});
     return response.data;
   }
 
   /**
    * @method getAll
    * @param {Object} config
-   * @param {string} config.url - the base url
+   * @param {string} config.baseUrl - the base baseUrl
    * @param {string} config.email - the user's email
    * @param {string} config.after - an account's DID
    * @param {number} config.limit - how many accounts to return
@@ -52,17 +48,16 @@ export class AccountService {
    * @description calls on the index route and returns all
    * accounts that match the email passed in.
    */
-  async getAll({url = this.config.urls.base, email, after, limit}) {
-    const response = await axios.get(url, {
-      params: {email, after, limit},
-      headers: {'Accept': 'application/ld+json, application/json'}});
+  async getAll({baseUrl = this.config.urls.base, email, after, limit}) {
+    const response = await axios.get(baseUrl, {
+      params: {email, after, limit}, headers});
     return response.data;
   }
 
   /**
    * @method update
    * @param {Object} config
-   * @param {string} config.url
+   * @param {string} config.baseUrl
    * @param {string} config.id - an account's id
    * @param {number} config.sequence - an account's sequence number
    * @param {Array<Object>} config.patch - an array of json patches
@@ -73,38 +68,33 @@ export class AccountService {
    * [we use fast-json]{@link https://www.npmjs.com/package/fast-json-patch}
    * for handling json patches.
    */
-  async update({url = this.config.urls.base, id, sequence, patch}) {
-    await axios.patch(`${url}/${id}`,
-      {sequence, patch},
-      {headers: {'Accept': 'application/ld+json, application/json'}});
+  async update({baseUrl = this.config.urls.base, id, sequence, patch}) {
+    await axios.patch(`${baseUrl}/${id}`, {sequence, patch}, {headers});
   }
 
   /**
    * @method setStatus
    * @param {Object} config
-   * @param {string} config.url
+   * @param {string} config.baseUrl
    * @param {string} config.id - an account id
    * @param {string} config.status - a string that is either active or deleted
    * @return {Void}
    * @description taken an id and a status string changes an account's status
   */
-  async setStatus({url = this.config.urls.base, id, status}) {
-    await axios.post(`${url}/${id}/status`,
-      {status},
-      {headers: {'Accept': 'application/ld+json, application/json'}});
+  async setStatus({baseUrl = this.config.urls.base, id, status}) {
+    await axios.post(`${baseUrl}/${id}/status`, {status}, {headers});
   }
 
   /**
    * @method getRoles
    * @param {Object} config
-   * @param {string} config.url
+   * @param {string} config.baseUrl
    * @param {string} config.id - an account id
-   * @return {Void}
+   * @return {Array<Object>}
    * @description takes an id and returns all sysRoles for it.
   */
-  async getRoles({url = this.config.urls.base, id}) {
-    const response = await axios.get(`${url}/${id}/roles`,
-      {headers: {'Accept': 'application/ld+json, application/json'}});
+  async getRoles({baseUrl = this.config.urls.base, id}) {
+    const response = await axios.get(`${baseUrl}/${id}/roles`, {headers});
     return response.data;
   }
 }
