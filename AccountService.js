@@ -14,6 +14,15 @@ export class AccountService {
     this.config = {urls};
   }
 
+  /**
+  * @method exists
+  * @param {Object} config
+  * @param {String} config.baseUrl
+  * @param {String} config.email
+  * @return {Boolean} exists
+  * @description the api retruns 404 if the user does not exist
+  * if the request is succesfull returns true
+  */
   async exists({baseUrl = this.config.urls.base, email}) {
     try {
       await axios.get(baseUrl, {
@@ -23,8 +32,14 @@ export class AccountService {
         }
       });
       return true;
-    } catch(e) {}
-    return false;
+    } catch(e) {
+      // if e has a response use it's data other wise return false
+      const {data = false} = e.response || {};
+      if(data && data.type === 'NotFoundError') {
+        return false;
+      }
+      throw e;
+    }
   }
 
   async create({url = this.config.urls.base, email}) {
