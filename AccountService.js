@@ -59,7 +59,7 @@ export class AccountService {
    * @param {Object} options
    * @param {string} options.baseUrl - the base baseUrl
    * @param {string} options.email - the user's email
-   * @param {string} options.after - an account's DID
+   * @param {string} options.after - an account's ID
    * @param {number} options.limit - how many accounts to return
    * @return {Array} data
    * @description returns all accounts that match the given query parameters.
