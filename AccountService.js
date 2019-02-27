@@ -76,7 +76,7 @@ export class AccountService {
    * @param {string} options.baseUrl
    * @param {string} options.id - an account's id
    * @param {number} options.sequence - an account's sequence number
-   * @param {Array<Object>} options.patch - an array of json patches
+   * @param {Array<Object>} options.patch - a JSON patch per RFC6902
    * @return {Void}
    * @description updates an account via a json patch as specified by:
    * [json patch format]{@link https://tools.ietf.org/html/rfc6902}
