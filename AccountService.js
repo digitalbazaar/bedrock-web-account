@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2018 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2018-2019 Digital Bazaar, Inc. All rights reserved.
  */
 'use strict';
 
@@ -16,9 +16,9 @@ export class AccountService {
 
   /**
   * @method exists
-  * @param {Object} config
-  * @param {String} config.baseUrl
-  * @param {String} config.email
+  * @param {Object} options
+  * @param {String} options.baseUrl
+  * @param {String} options.email
   * @return {Boolean} exists
   * @description the api retruns 404 if the user does not exist
   * if the request is succesfull returns true
@@ -54,11 +54,11 @@ export class AccountService {
 
   /**
    * @method getAll
-   * @param {Object} config
-   * @param {string} config.baseUrl - the base baseUrl
-   * @param {string} config.email - the user's email
-   * @param {string} config.after - an account's DID
-   * @param {number} config.limit - how many accounts to return
+   * @param {Object} options
+   * @param {string} options.baseUrl - the base baseUrl
+   * @param {string} options.email - the user's email
+   * @param {string} options.after - an account's DID
+   * @param {number} options.limit - how many accounts to return
    * @return {Array} data
    * @description calls on the index route and returns all
    * accounts that match the email passed in.
@@ -71,11 +71,11 @@ export class AccountService {
 
   /**
    * @method update
-   * @param {Object} config
-   * @param {string} config.baseUrl
-   * @param {string} config.id - an account's id
-   * @param {number} config.sequence - an account's sequence number
-   * @param {Array<Object>} config.patch - an array of json patches
+   * @param {Object} options
+   * @param {string} options.baseUrl
+   * @param {string} options.id - an account's id
+   * @param {number} options.sequence - an account's sequence number
+   * @param {Array<Object>} options.patch - an array of json patches
    * @return {Void}
    * @description updates an account via a series of json patches
    * patches need to be in the:
@@ -91,10 +91,10 @@ export class AccountService {
 
   /**
    * @method setStatus
-   * @param {Object} config
-   * @param {string} config.baseUrl
-   * @param {string} config.id - an account id
-   * @param {string} config.status - a string that is either active or deleted
+   * @param {Object} options
+   * @param {string} options.baseUrl
+   * @param {string} options.id - an account id
+   * @param {string} options.status - a string that is either active or deleted
    * @return {Void}
    * @description taken an id and a status string changes an account's status
   */
@@ -104,9 +104,9 @@ export class AccountService {
 
   /**
    * @method getRoles
-   * @param {Object} config
-   * @param {string} config.baseUrl
-   * @param {string} config.id - an account id
+   * @param {Object} options
+   * @param {string} options.baseUrl
+   * @param {string} options.id - an account id
    * @return {Array<Object>}
    * @description takes an id and returns all sysRoles for it.
   */
