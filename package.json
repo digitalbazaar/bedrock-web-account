@@ -23,8 +23,9 @@
     }
   },
   "devDependencies": {
-    "eslint-config-digitalbazaar": "^1.3.0",
-    "eslint-plugin-jsdoc": "^4.1.0",
+    "eslint": "^5.15.3",
+    "eslint-config-digitalbazaar": "^2.0.0",
+    "eslint-plugin-jsdoc": "^4.6.0",
     "jsdoc": "^3.5.5",
     "jsdoc-to-markdown": "^4.0.1"
   }
