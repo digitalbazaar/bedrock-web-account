@@ -2,26 +2,18 @@
   "name": "bedrock-web-account",
   "version": "1.0.1-0",
   "description": "User Account APIs for Bedrock Web Apps",
-  "main": "index.js",
+  "module": "main.js",
   "scripts": {
     "generate-readme": "jsdoc2md -t template.hbs *.js > README.md",
     "lint": "eslint ."
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "p-debounce": "^1.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-web-account"
-  },
-  "bedrock": {
-    "browserDependencies": "all",
-    "manifest": {
-      "axios": {
-        "main": "dist/axios.min.js"
-      }
-    }
   },
   "devDependencies": {
     "eslint": "^6.8.0",
