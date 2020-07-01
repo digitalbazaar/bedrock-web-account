@@ -6,13 +6,14 @@
 import {AccountService} from './AccountService.js';
 import pDebounce from 'p-debounce';
 
-/**
- * Encapsulates the registration methods.
- * @param {Object} options
- * @param {number} [options.debounceExists = 500]
- * @param {Object} [options.accountServiceConfig = {}]
- */
 export class RegisterController {
+  /**
+   * Encapsulates the registration methods.
+   *
+   * @param {object} options - The options to use.
+   * @param {number} [options.debounceExists = 500] - DebounceExists.
+   * @param {object} [options.accountServiceConfig = {}] - AccountServiceConfig.
+   */
   constructor({debounceExists = 500, accountServiceConfig = {}} = {}) {
     this.state = {
       registering: false,
@@ -23,10 +24,12 @@ export class RegisterController {
     this.accountService = new AccountService(accountServiceConfig);
     this.debounceExists = debounceExists;
   }
+
   /**
    * Exists is a debounced method used to check if an email already exists
    * during registration.
-   * @memberOf RegisterController
+   *
+   * @returns {Promise<boolean>} - Exists.
    */
   async exists() {
     this.state.checkingExistence = true;
@@ -48,9 +51,11 @@ export class RegisterController {
 
     return this._debounceExists();
   }
+
   /**
    * Registers a user then sets registering to false.
-   * @memberOf RegisterController
+   *
+   * @returns {Promise<object>} - Result.
    */
   async register() {
     this.state.registering = true;
