@@ -1,5 +1,12 @@
 # bedrock-web-account ChangeLog
 
+## 1.2.0 - 2020-07-02
+
+### Changed
+- Update deps.
+- Update test deps.
+- Update CI workflow.
+
 ## 1.1.0 - 2020-04-21
 
 ### Added
