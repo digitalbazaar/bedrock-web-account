@@ -37,9 +37,10 @@ export class RegisterController {
     if(!this._debounceExists) {
       this._debounceExists = pDebounce(async () => {
         let exists = false;
+        const email = this.state.email.toLowerCase();
         try {
           exists = await this.accountService.exists({
-            email: this.state.email,
+            email,
             // phoneNumber: this.state.phoneNumber
           });
         } finally {
@@ -58,11 +59,12 @@ export class RegisterController {
    * @returns {Promise<object>} - Result.
    */
   async register() {
+    const email = this.state.email.toLowerCase();
     this.state.registering = true;
 
     try {
       const result = await this.accountService.create({
-        email: this.state.email,
+        email,
         // phoneNumber: this.state.phoneNumber
       });
       return result;
