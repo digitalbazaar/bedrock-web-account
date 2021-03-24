@@ -1,5 +1,10 @@
 # bedrock-web-account ChangeLog
 
+## 1.3.0 - 2021-03-24
+
+### Changed
+- Use `axios@0.21.1` to address security vulnerabilities.
+
 ## 1.2.1 - 2021-03-24
 
 ### Fixed
