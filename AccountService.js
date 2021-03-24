@@ -4,10 +4,8 @@
 'use strict';
 
 import {httpClient} from '@digitalbazaar/http-client';
-import https from 'https';
 
 const headers = {Accept: 'application/ld+json, application/json'};
-const agent = new https.Agent({rejectUnauthorized: false});
 
 export class AccountService {
   /**
@@ -39,7 +37,6 @@ export class AccountService {
   async exists({baseUrl = this.config.urls.base, email}) {
     try {
       await httpClient.get(baseUrl, {
-        agent,
         searchParams: {
           exists: true,
           email
@@ -66,8 +63,7 @@ export class AccountService {
    * @returns {Promise<object>} - Data.
    */
   async create({url = this.config.urls.base, email} = {}) {
-    const response = await httpClient.post(url, {
-      agent, headers, json: {email}});
+    const response = await httpClient.post(url, {headers, json: {email}});
     return response.data;
   }
 
@@ -81,7 +77,7 @@ export class AccountService {
    * @returns {Promise<object>} - An account.
    */
   async get({baseUrl = this.config.urls.base, id}) {
-    const response = await httpClient.get(baseUrl + '/' + id, {agent, headers});
+    const response = await httpClient.get(baseUrl + '/' + id, {headers});
     return response.data;
   }
 
@@ -99,7 +95,6 @@ export class AccountService {
   async getAll(
     {baseUrl = this.config.urls.base, email, after = null, limit = 10}) {
     const response = await httpClient.get(baseUrl, {
-      agent,
       searchParams: {email, after, limit}, headers});
     return response.data;
   }
@@ -122,10 +117,7 @@ export class AccountService {
   async update({baseUrl = this.config.urls.base, id, sequence, patch}) {
     const patchHeaders = {'Content-Type': 'application/json-patch+json'};
     await httpClient.patch(
-      `${baseUrl}/${id}`, {
-        agent,
-        headers: patchHeaders,
-        json: {sequence, patch}
+      `${baseUrl}/${id}`, {headers: patchHeaders, json: {sequence, patch}
       });
   }
 
@@ -143,8 +135,7 @@ export class AccountService {
    *
   */
   async setStatus({baseUrl = this.config.urls.base, id, status}) {
-    await httpClient.post(`${baseUrl}/${id}/status`,
-      {agent, headers, json: {status}});
+    await httpClient.post(`${baseUrl}/${id}/status`, {headers, json: {status}});
   }
 
   /**
@@ -157,8 +148,7 @@ export class AccountService {
    * @returns {Promise<Array<object>>} - Data.
   */
   async getRoles({baseUrl = this.config.urls.base, id}) {
-    const response = await httpClient.get(`${baseUrl}/${id}/roles`,
-      {agent, headers});
+    const response = await httpClient.get(`${baseUrl}/${id}/roles`, {headers});
     return response.data;
   }
 }
