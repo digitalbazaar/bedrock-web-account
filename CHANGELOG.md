@@ -1,9 +1,10 @@
 # bedrock-web-account ChangeLog
 
-## 2.0.0 - 2021-03-TBD
+## 2.0.0 - 2021-03-24
 
 ### Changed
-- **BREAKING**: Remove `axios@0.21.1` and use `@digitalbazaar/http-client@1.0.0`.
+- **BREAKING**: Replace `axios` with `@digitalbazaar/http-client`. This is
+  breaking because errors thrown by the two libraries are not identical.
 
 ## 1.3.0 - 2021-03-24
 
