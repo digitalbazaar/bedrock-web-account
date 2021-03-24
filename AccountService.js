@@ -5,8 +5,6 @@
 
 import {httpClient} from '@digitalbazaar/http-client';
 
-const headers = {Accept: 'application/ld+json, application/json'};
-
 export class AccountService {
   /**
    * This service is used to encapsulate all account
@@ -63,7 +61,7 @@ export class AccountService {
    * @returns {Promise<object>} - Data.
    */
   async create({url = this.config.urls.base, email} = {}) {
-    const response = await httpClient.post(url, {headers, json: {email}});
+    const response = await httpClient.post(url, {json: {email}});
     return response.data;
   }
 
@@ -77,7 +75,7 @@ export class AccountService {
    * @returns {Promise<object>} - An account.
    */
   async get({baseUrl = this.config.urls.base, id}) {
-    const response = await httpClient.get(baseUrl + '/' + id, {headers});
+    const response = await httpClient.get(baseUrl + '/' + id);
     return response.data;
   }
 
@@ -95,7 +93,7 @@ export class AccountService {
   async getAll(
     {baseUrl = this.config.urls.base, email, after = null, limit = 10}) {
     const response = await httpClient.get(baseUrl, {
-      searchParams: {email, after, limit}, headers});
+      searchParams: {email, after, limit}});
     return response.data;
   }
 
@@ -135,7 +133,7 @@ export class AccountService {
    *
   */
   async setStatus({baseUrl = this.config.urls.base, id, status}) {
-    await httpClient.post(`${baseUrl}/${id}/status`, {headers, json: {status}});
+    await httpClient.post(`${baseUrl}/${id}/status`, {json: {status}});
   }
 
   /**
@@ -148,7 +146,7 @@ export class AccountService {
    * @returns {Promise<Array<object>>} - Data.
   */
   async getRoles({baseUrl = this.config.urls.base, id}) {
-    const response = await httpClient.get(`${baseUrl}/${id}/roles`, {headers});
+    const response = await httpClient.get(`${baseUrl}/${id}/roles`);
     return response.data;
   }
 }
