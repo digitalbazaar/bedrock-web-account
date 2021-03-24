@@ -1,9 +1,9 @@
 # bedrock-web-account ChangeLog
 
-## 1.2.1 - 2021-03-TBD
+## 1.2.1 - 2021-03-24
 
 ### Fixed
-- Use lower case when registering email.
+- Convert email addresses to lower case before registration.
 
 ## 1.2.0 - 2020-07-02
 
