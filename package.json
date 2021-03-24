@@ -1,6 +1,6 @@
 {
   "name": "bedrock-web-account",
-  "version": "2.0.0",
+  "version": "2.0.1-0",
   "description": "User Account APIs for Bedrock Web Apps",
   "module": "main.js",
   "scripts": {
