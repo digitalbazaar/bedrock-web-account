@@ -4,6 +4,7 @@
 'use strict';
 
 import {httpClient} from '@digitalbazaar/http-client';
+import https from 'https';
 
 export class AccountService {
   /**
@@ -61,7 +62,10 @@ export class AccountService {
    * @returns {Promise<object>} - Data.
    */
   async create({url = this.config.urls.base, email} = {}) {
-    const response = await httpClient.post(url, {json: {email}});
+    const response = await httpClient.post(url, {
+      agent: new https.Agent({rejectUnauthorized: false}),
+      json: {email}
+    });
     return response.data;
   }
 
