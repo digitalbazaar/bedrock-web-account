@@ -119,7 +119,10 @@ export class AccountService {
   async update({baseUrl = this.config.urls.base, id, sequence, patch}) {
     const patchHeaders = {'Content-Type': 'application/json-patch+json'};
     await httpClient.patch(
-      `${baseUrl}/${id}`, {headers: patchHeaders, json: {sequence, patch}
+      `${baseUrl}/${id}`, {
+        headers: patchHeaders,
+        json: {sequence, patch},
+        agent: new https.Agent({rejectUnauthorized: false}),
       });
   }
 
@@ -137,7 +140,10 @@ export class AccountService {
    *
   */
   async setStatus({baseUrl = this.config.urls.base, id, status}) {
-    await httpClient.post(`${baseUrl}/${id}/status`, {json: {status}});
+    await httpClient.post(`${baseUrl}/${id}/status`, {
+      agent: new https.Agent({rejectUnauthorized: false}),
+      json: {status}
+    });
   }
 
   /**
