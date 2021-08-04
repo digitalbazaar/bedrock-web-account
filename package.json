@@ -2,7 +2,8 @@
   "name": "bedrock-web-account",
   "version": "2.1.1-0",
   "description": "User Account APIs for Bedrock Web Apps",
-  "module": "index.js",
+  "main": "index.js",
+  "module": "main.js",
   "scripts": {
     "generate-readme": "jsdoc2md -t template.hbs *.js > README.md",
     "lint": "eslint ."
