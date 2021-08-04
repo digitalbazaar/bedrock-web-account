@@ -1,7 +1,6 @@
 /*!
  * Copyright (c) 2018 Digital Bazaar, Inc. All rights reserved.
  */
-'use strict';
 
 import {AccountService} from './AccountService.js';
 import pDebounce from 'p-debounce';
