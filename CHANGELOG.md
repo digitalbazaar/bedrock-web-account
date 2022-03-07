@@ -1,6 +1,6 @@
 # bedrock-web-account ChangeLog
 
-## 2.1.0 - 2022-03-xx
+## 2.1.0 - 2022-03-07
 
 ### Changed
 - Use `@digitalbazaar/http-client@2` internally. This should not constitute
