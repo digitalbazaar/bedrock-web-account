@@ -1,5 +1,12 @@
 # bedrock-web-account ChangeLog
 
+## 2.1.0 - 2022-03-xx
+
+### Changed
+- Use `@digitalbazaar/http-client@2` internally. This should not constitute
+  a breaking change.
+- Update tests to work with `bedrock-account@6`.
+
 ## 2.0.0 - 2021-03-24
 
 ### Changed

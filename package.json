@@ -8,7 +8,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@digitalbazaar/http-client": "^1.0.0",
+    "@digitalbazaar/http-client": "^2.0.1",
     "p-debounce": "^1.0.0"
   },
   "repository": {

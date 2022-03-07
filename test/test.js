@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2019-2022 Digital Bazaar, Inc. All rights reserved.
  */
 const bedrock = require('bedrock');
 require('bedrock-mongodb');
@@ -11,7 +11,6 @@ const mockData = require('./web/mock-data');
 brPassport.optionallyAuthenticated = (req, res, next) => {
   req.user = {
     account: {},
-    actor: mockData.actors.alpha
   };
   next();
 };
