@@ -18,5 +18,19 @@ describe('AccountService', () => {
       should.not.exist(result);
       should.exist(err);
     });
-  }); // end create
+  });
+  describe('exists', () => {
+    it('detects an account does not exist', async () => {
+      let result;
+      let err;
+      try {
+        result = await accountService.exists({email: 'dne@test.example'});
+      } catch(e) {
+        err = e;
+      }
+      should.exist(result);
+      result.should.equal(false);
+      should.not.exist(err);
+    });
+  });
 });
