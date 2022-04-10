@@ -1,5 +1,10 @@
 # bedrock-web-account ChangeLog
 
+## 3.0.1 - 2022-04-xx
+
+### Fixed
+- Only export `lib` dir.
+
 ## 3.0.0 - 2022-04-10
 
 ### Changed
