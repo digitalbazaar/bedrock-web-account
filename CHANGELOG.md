@@ -6,6 +6,9 @@
 - **BREAKING**: Rename package to `@bedrock/web-account`.
 - **BREAKING**: Convert to module (ESM).
 
+### Removed
+- **BREAKING**: Remove obsolete `getRoles` API.
+
 ## 2.1.0 - 2022-03-07
 
 ### Changed
