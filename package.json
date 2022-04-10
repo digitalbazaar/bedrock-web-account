@@ -1,6 +1,6 @@
 {
   "name": "@bedrock/web-account",
-  "version": "3.0.1-0",
+  "version": "3.0.1",
   "type": "module",
   "description": "User Account APIs for Bedrock Web Apps",
   "module": "./lib/index.js",
