@@ -1,5 +1,11 @@
 # bedrock-web-account ChangeLog
 
+## 3.0.0 - 2022-04-xx
+
+### Changed
+- **BREAKING**: Rename package to `@bedrock/web-account`.
+- **BREAKING**: Convert to module (ESM).
+
 ## 2.1.0 - 2022-03-07
 
 ### Changed
