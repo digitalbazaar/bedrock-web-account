@@ -1,6 +1,6 @@
 # bedrock-web-account ChangeLog
 
-## 3.0.2 - 2022-04-xx
+## 3.0.2 - 2022-04-10
 
 ### Fixed
 - Fix `exists()` API on `AccountService`.
