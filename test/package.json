@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "node --preserve-symlinks test.js test --framework karma",
-    "coverage": "node --preserve-symlinks test.js test --framework karma --config ./node_modules/@bedrock/karma/lib/coverageConfig.js",
-    "coverage-ci": "node --preserve-symlinks test.js test --framework karma --config ./node_modules/@bedrock/karma/lib/coverageConfig.js"
+    "coverage": "node --preserve-symlinks test.js test --framework karma-coverage",
+    "coverage-ci": "node --preserve-symlinks test.js test --framework karma-coverage-ci"
   },
   "dependencies": {
     "@bedrock/account": "^7.0.0",
@@ -15,7 +15,7 @@
     "@bedrock/express": "^7.0.0",
     "@bedrock/https-agent": "^3.0.0",
     "@bedrock/jsonld-document-loader": "^2.0.0",
-    "@bedrock/karma": "^3.0.0",
+    "@bedrock/karma": "^4.0.0",
     "@bedrock/mongodb": "^9.0.0",
     "@bedrock/passport": "^9.0.0",
     "@bedrock/security-context": "^6.0.0",
