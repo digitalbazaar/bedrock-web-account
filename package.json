@@ -21,8 +21,9 @@
   ],
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-config-digitalbazaar": "^2.8.0",
-    "eslint-plugin-jsdoc": "^39.2.6",
+    "eslint-config-digitalbazaar": "^2.9.0",
+    "eslint-plugin-jsdoc": "^39.2.7",
+    "eslint-plugin-unicorn": "^40.1.0",
     "jsdoc": "^3.6.10",
     "jsdoc-to-markdown": "^7.1.1"
   }
