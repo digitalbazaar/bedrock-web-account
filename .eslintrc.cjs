@@ -8,6 +8,10 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: ['digitalbazaar', 'digitalbazaar/jsdoc'],
+  extends: [
+    'digitalbazaar',
+    'digitalbazaar/jsdoc',
+    'digitalbazaar/module'
+  ],
   ignorePatterns: ['node_modules/']
 };
