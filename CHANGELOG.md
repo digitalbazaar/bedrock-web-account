@@ -1,10 +1,10 @@
 # bedrock-web-account ChangeLog
 
-## 3.1.0 - 2022-xx-xx
+## 4.0.0 - 2022-xx-xx
 
 ### Changed
 - Update to ESM dependencies.
-- Use `exports` instead of `module`.
+- **BREAKING**: Use `exports` instead of `module`.
 
 ## 3.0.2 - 2022-04-10
 
