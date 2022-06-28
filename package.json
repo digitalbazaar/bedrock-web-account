@@ -1,9 +1,12 @@
 {
   "name": "@bedrock/web-account",
   "version": "3.0.3-0",
-  "type": "module",
   "description": "User Account APIs for Bedrock Web Apps",
+  "type": "module",
   "exports": "./lib/index.js",
+  "files": [
+    "lib/**/*.js"
+  ],
   "scripts": {
     "generate-readme": "jsdoc2md -t template.hbs lib/*.js > README.md",
     "lint": "eslint ."
@@ -16,9 +19,6 @@
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-web-account"
   },
-  "files": [
-    "lib/*"
-  ],
   "devDependencies": {
     "eslint": "^8.14.0",
     "eslint-config-digitalbazaar": "^3.0.0",
