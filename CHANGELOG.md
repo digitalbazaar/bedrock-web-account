@@ -1,6 +1,6 @@
 # bedrock-web-account ChangeLog
 
-## 4.0.0 - 2022-xx-xx
+## 4.0.0 - 2022-08-19
 
 ### Changed
 - Update to ESM dependencies.
