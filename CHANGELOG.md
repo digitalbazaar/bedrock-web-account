@@ -1,6 +1,6 @@
 # bedrock-web-account ChangeLog
 
-## 5.0.0 - 2023-01-dd
+## 5.0.0 - 2023-01-24
 
 ### Changed
 - **BREAKING**: The `update()` method now requires at least a
