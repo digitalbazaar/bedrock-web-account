@@ -1,5 +1,13 @@
 # bedrock-web-account ChangeLog
 
+## 5.0.0 - 2023-01-dd
+
+### Changed
+- **BREAKING**: The `update()` method now requires at least a
+  `@bedrock/account-http@7` backend. The signature no longer takes the `id`
+  parameter, only the full `account` to be updated, as it no longer uses
+  a `patch` mechanism.
+
 ## 4.0.0 - 2022-08-19
 
 ### Changed
