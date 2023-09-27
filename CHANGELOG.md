@@ -3,6 +3,7 @@
 ## 6.1.0 - 2023-10-xx
 
 ### Added
+
 - Add optional captcha validation from Cloudflare Turnstile, if `token` is 
   present in `RegisterController`.
   
