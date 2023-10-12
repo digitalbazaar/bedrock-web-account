@@ -3,7 +3,6 @@
 ## 6.1.0 - 2023-10-xx
 
 ### Added
-
 - Add optional captcha validation from Cloudflare Turnstile, if `token` is 
   present in `RegisterController`.
   
@@ -12,6 +11,7 @@
 ### Changed
 - **BREAKING**: Drop support for Node.js < 18.
 - Use `@digitalbazaar/http-client@4.0`. Requires Node.js 18+.
+
 
 ## 5.0.0 - 2023-01-24
 
