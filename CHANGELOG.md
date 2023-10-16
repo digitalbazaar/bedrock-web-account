@@ -12,7 +12,6 @@
 - **BREAKING**: Drop support for Node.js < 18.
 - Use `@digitalbazaar/http-client@4.0`. Requires Node.js 18+.
 
-
 ## 5.0.0 - 2023-01-24
 
 ### Changed
