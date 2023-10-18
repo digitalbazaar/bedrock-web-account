@@ -1,11 +1,11 @@
 # bedrock-web-account ChangeLog
 
-## 6.1.0 - 2023-10-xx
+## 6.1.0 - 2023-10-18
 
 ### Added
-- Add optional captcha validation from Cloudflare Turnstile, if `token` is 
+- Add optional captcha validation from Cloudflare Turnstile, if `token` is
   present in `RegisterController`.
-  
+
 ## 6.0.0 - 2023-10-16
 
 ### Changed
