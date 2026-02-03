@@ -1,5 +1,10 @@
 # bedrock-web-account ChangeLog
 
+## 6.2.0 - 2026-02-dd
+
+### Added
+- Add AccountService method to request meter creation for specified product IDs.
+
 ## 6.1.0 - 2023-10-18
 
 ### Added
