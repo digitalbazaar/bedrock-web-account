@@ -3,7 +3,7 @@
 ## 6.2.0 - 2026-02-dd
 
 ### Added
-- Add AccountService method to request meter creation for specified product IDs.
+- Add AccountService method to request meter creation.
 
 ## 6.1.0 - 2023-10-18
 
