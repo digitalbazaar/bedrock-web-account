@@ -1,9 +1,9 @@
 # bedrock-web-account ChangeLog
 
-## 6.2.0 - 2026-02-dd
+## 6.2.0 - 2026-02-07
 
 ### Added
-- Add AccountService method to request meter creation.
+- Add `AccountService.createMeter` method to request meter creation.
 
 ## 6.1.0 - 2023-10-18
 
