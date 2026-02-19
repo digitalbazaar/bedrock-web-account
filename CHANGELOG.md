@@ -1,8 +1,8 @@
 # bedrock-web-account ChangeLog
 
-## 6.3.0 - 2026-02-dd
+## 6.2.1 - 2026-02-19
 
-### Update
+### Fixed
 - Remove nested data object from `AccountService.createMeter` response.
 
 ## 6.2.0 - 2026-02-07
